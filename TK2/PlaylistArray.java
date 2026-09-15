@@ -11,7 +11,7 @@ public class PlaylistArray {
         jumlahLagu = 0;
     }
 
-    // Traversal: O(n) - menelusuri seluruh elemen array satu per satu
+    // Traversal: menelusuri array dari awal sampai akhir untuk menampilkan tiap lagu
     public void tampilkanSemuaLagu() {
         if (jumlahLagu == 0) {
             System.out.println("Playlist masih kosong.");
@@ -24,7 +24,7 @@ public class PlaylistArray {
         }
     }
 
-    // Insertion: O(1) - menambahkan elemen baru di akhir array yang belum penuh
+    // Insertion: menambahkan lagu baru di posisi kosong berikutnya (akhir array)
     public void tambahLagu(Lagu laguBaru) {
         if (jumlahLagu >= KAPASITAS) {
             System.out.println("Playlist sudah penuh, tidak bisa menambah lagu.");
@@ -35,7 +35,7 @@ public class PlaylistArray {
         System.out.println("Lagu berhasil ditambahkan!");
     }
 
-    // Deletion: O(n) - mencari index lagu lalu menggeser elemen setelahnya agar array tetap rapat
+    // Deletion: cari index lagu, lalu geser elemen setelahnya ke kiri agar array tetap rapat
     public void hapusLagu(String judulCari) {
         int index = cariIndex(judulCari);
         if (index == -1) {
@@ -50,7 +50,7 @@ public class PlaylistArray {
         System.out.println("Lagu \"" + judulCari + "\" berhasil dihapus.");
     }
 
-    // Searching: O(n) - linear search, membandingkan judul satu per satu dari awal array
+    // Searching: linear search, cocokkan judul satu per satu dari awal array
     public void cariLagu(String judulCari) {
         int index = cariIndex(judulCari);
         if (index == -1) {
@@ -70,7 +70,7 @@ public class PlaylistArray {
         return -1;
     }
 
-    // Sorting: O(n^2) - bubble sort, membandingkan pasangan elemen bersebelahan berulang kali
+    // Bubble sort: bandingkan pasangan elemen bersebelahan berulang kali, tukar jika belum urut
     public void urutkanLaguBerdasarkanDurasi() {
         if (jumlahLagu < 2) {
             System.out.println("Tidak cukup lagu untuk diurutkan.");
